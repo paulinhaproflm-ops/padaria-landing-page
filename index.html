@@ -123,7 +123,31 @@
                 <p>Pagamento por Pix, dinheiro, cartão de crédito ou débito.</p>
             </div>
 
-            <!-- formulário de encomenda entra aqui (parte 2) -->
+            <form id="form-encomenda" class="form-encomenda">
+                <h3>Faça sua encomenda</h3>
+
+                <label for="nome">Seu nome</label>
+                <input type="text" id="nome" required>
+
+                <label for="produto">Produto</label>
+                <select id="produto" required>
+                    <option value="">Escolha um produto</option>
+                    <option>Pastel folheado</option>
+                    <option>Brownie recheado</option>
+                    <option>Cento de salgados</option>
+                    <option>Bolo inteiro</option>
+                    <option>Coffee break</option>
+                    <option>Cesta de café da manhã</option>
+                </select>
+
+                <label for="quantidade">Quantidade</label>
+                <input type="number" id="quantidade" min="1" value="1" required>
+
+                <label for="observacao">Observação (opcional)</label>
+                <textarea id="observacao" rows="3" placeholder="Ex.: sabor, data de retirada, endereço de entrega"></textarea>
+
+                <button type="submit" class="botao">Enviar pelo WhatsApp</button>
+            </form>
         </section>
     </main>
 
