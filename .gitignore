@@ -1,0 +1,10 @@
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+
+# Segredos (nunca subir para o GitHub)
+.env
+*.env
