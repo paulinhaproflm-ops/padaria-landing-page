@@ -10,3 +10,21 @@ nav a {
     color: #5a3a22;
     text-decoration: none;
 }
+
+.hero {
+    background-color: #f3e6d0;
+    padding: 60px 20px;
+}
+
+.hero h1 {
+    color: #5a3a22;
+    font-size: 48px;
+}
+
+.botao {
+    background-color: #5a3a22;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 30px;
+    text-decoration: none;
+}
