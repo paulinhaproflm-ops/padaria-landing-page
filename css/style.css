@@ -252,6 +252,211 @@ main section > p {
     margin-top: 28px;
 }
 
+/* ===== COMO ENCOMENDAR ===== */
+.como-encomendar {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "titulo titulo"
+        "passos form"
+        "entrega form";
+    grid-template-rows: auto auto 1fr;
+    column-gap: 48px;
+    align-items: start;
+}
+
+.como-encomendar > h2 { grid-area: titulo; }
+.passos { grid-area: passos; }
+.entrega { grid-area: entrega; }
+.form-encomenda { grid-area: form; }
+
+.passos {
+    margin: 0 0 24px;
+    padding-left: 22px;
+    font-size: 18px;
+}
+
+.passos li {
+    margin-bottom: 12px;
+    padding-left: 6px;
+}
+
+.passos li::marker {
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.entrega {
+    background-color: var(--bege);
+    border-radius: 16px;
+    padding: 20px 24px;
+}
+
+.entrega h3 {
+    margin: 0 0 8px;
+}
+
+.entrega p {
+    margin: 0 0 6px;
+}
+
+/* ===== FORMULÁRIO ===== */
+.form-encomenda {
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-encomenda h3 {
+    font-size: 24px;
+    margin: 0 0 16px;
+}
+
+.form-encomenda label {
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.form-encomenda input,
+.form-encomenda select,
+.form-encomenda textarea {
+    font: inherit;
+    color: var(--texto);
+    background-color: var(--creme);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    width: 100%;
+}
+
+.form-encomenda input:focus,
+.form-encomenda select:focus,
+.form-encomenda textarea:focus {
+    outline: 2px solid var(--laranja);
+    outline-offset: 1px;
+    border-color: var(--laranja);
+}
+
+.form-encomenda button {
+    border: none;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 500;
+    align-self: flex-start;
+}
+
+/* ===== SOBRE ===== */
+.sobre {
+    background-color: var(--branco);
+}
+
+.sobre p {
+    font-size: 18px;
+    max-width: 700px;
+}
+
+/* ===== LOCALIZAÇÃO ===== */
+.localizacao {
+    background-color: var(--bege);
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    grid-template-areas:
+        "titulo mapa"
+        "status mapa"
+        "endereco mapa"
+        "subtitulo mapa"
+        "horarios mapa"
+        "botao mapa";
+    column-gap: 48px;
+    align-content: start;
+}
+
+.localizacao > h2 { grid-area: titulo; }
+.status { grid-area: status; }
+.localizacao address { grid-area: endereco; }
+.localizacao h3 { grid-area: subtitulo; }
+.horarios { grid-area: horarios; }
+.mapa { grid-area: mapa; }
+.localizacao .botao { grid-area: botao; justify-self: start; }
+
+.status {
+    justify-self: start;
+    background-color: var(--branco);
+    border-radius: 30px;
+    padding: 6px 16px;
+    font-weight: 700;
+    margin: 0 0 20px;
+}
+
+.status.aberto {
+    background-color: #e3f4e6;
+    color: #1f6b35;
+}
+
+.status.fechado {
+    background-color: #fbe4e1;
+    color: #9b2c1f;
+}
+
+.localizacao address {
+    font-style: normal;
+    font-size: 18px;
+}
+
+.localizacao h3 {
+    margin: 24px 0 8px;
+}
+
+.horarios {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px;
+}
+
+.horarios li {
+    padding: 4px 0;
+}
+
+.mapa {
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    border: 0;
+    border-radius: 16px;
+    background-color: var(--borda);
+}
+
+/* ===== RODAPÉ ===== */
+footer .logo {
+    color: var(--creme);
+    margin: 0 0 4px;
+}
+
+footer p {
+    margin: 0 0 8px;
+}
+
+footer nav {
+    margin: 16px 0;
+}
+
+footer nav a {
+    color: var(--creme);
+    text-decoration: underline;
+}
+
+footer nav a:hover {
+    color: #f3b37f;
+}
+
+footer small {
+    opacity: 0.75;
+}
+
 /* ===== CELULAR (telas até 768px) ===== */
 @media (max-width: 768px) {
     header {
@@ -264,7 +469,7 @@ main section > p {
         white-space: nowrap;
     }
 
-    nav {
+    header nav {
         order: 3;
         width: 100%;
         gap: 20px;
@@ -293,5 +498,41 @@ main section > p {
 
     .hero h1 {
         font-size: 36px;
+    }
+
+    .como-encomendar {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "titulo"
+            "passos"
+            "entrega"
+            "form";
+    }
+
+    .form-encomenda {
+        margin-top: 24px;
+        padding: 20px;
+    }
+
+    .localizacao {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "titulo"
+            "status"
+            "endereco"
+            "subtitulo"
+            "horarios"
+            "botao"
+            "mapa";
+    }
+
+    .mapa {
+        min-height: 280px;
+        margin-top: 24px;
+    }
+
+    footer nav {
+        flex-direction: column;
+        gap: 8px;
     }
 }
