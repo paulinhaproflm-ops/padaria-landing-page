@@ -4,6 +4,8 @@
     --laranja: #c46a2b;
     --bege: #f3e6d0;
     --creme: #fbf6ee;
+    --branco: #fffdf9;
+    --borda: #ead9c0;
     --texto: #3b2a1c;
     --fonte-titulo: "Playfair Display", Georgia, serif;
     --fonte-texto: "DM Sans", Arial, sans-serif;
@@ -145,6 +147,109 @@ footer {
     font-size: 13px;
     padding: 4px 12px;
     border-radius: 20px;
+}
+
+/* ===== TÍTULOS DAS SEÇÕES ===== */
+main section h2 {
+    font-size: 36px;
+    margin: 0 0 12px;
+}
+
+main section > p {
+    margin: 0 0 32px;
+}
+
+/* ===== CARDS (destaques e coffee break) ===== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.card {
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    padding: 20px;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin: 0 0 8px;
+}
+
+.card p {
+    margin: 0;
+}
+
+/* espaço da foto nos destaques (some quando a foto real entrar) */
+.destaques .card::before {
+    content: "";
+    display: block;
+    aspect-ratio: 1 / 1;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    background: linear-gradient(160deg, #e9c99a, var(--laranja));
+}
+
+/* ===== CARDÁPIO ===== */
+.cardapio {
+    background-color: var(--branco);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
+    column-gap: 24px;
+}
+
+.cardapio > h2,
+.cardapio > p {
+    grid-column: 1 / -1;
+}
+
+.categoria {
+    background-color: var(--creme);
+    border-radius: 16px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+}
+
+.categoria h3 {
+    font-size: 22px;
+    margin: 0 0 8px;
+    color: var(--laranja);
+}
+
+.categoria ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.categoria li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--borda);
+}
+
+.categoria li:last-child {
+    border-bottom: none;
+}
+
+.preco {
+    font-weight: 700;
+    color: var(--marrom);
+    white-space: nowrap;
+}
+
+/* ===== COFFEE BREAK ===== */
+.coffee-break {
+    background-color: var(--bege);
+}
+
+.coffee-break .botao {
+    margin-top: 28px;
 }
 
 /* ===== CELULAR (telas até 768px) ===== */
