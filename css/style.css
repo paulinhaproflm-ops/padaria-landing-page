@@ -1,35 +1,39 @@
 /* ==========================================================
    PADARIA BELLA VISTA — Folha de estilos
-   Direção de arte: artesanal contemporânea, editorial gastronômico
+   Direção de arte: padaria tradicional com apresentação
+   moderna, acolhedora e profissional.
    ========================================================== */
 
-/* Fonte editorial para títulos (complementa as fontes já carregadas no HTML) */
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&display=swap");
+/* Fontes: Playfair Display (títulos) e Manrope (textos e navegação) */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap");
 
 /* ===== CORES, FONTES E MEDIDAS ===== */
 :root {
-    /* paleta */
-    --marrom: #3a2418;          /* café */
-    --marrom-escuro: #2a1910;
-    --laranja: #a8642a;         /* caramelo (mantém o nome usado no projeto) */
-    --caramelo-claro: #d9b48a;
-    --bege: #ece1cf;
-    --bege-escuro: #dfd0b7;
-    --creme: #f7f1e7;
-    --branco: #fcf9f3;
-    --texto: #3a2a20;
-    --texto-suave: #6f5a4a;
-    --borda: #d9c7ac;
-    --linha: rgba(58, 36, 24, 0.14);
+    /* paleta da marca */
+    --marrom-profundo: #302019;
+    --marrom: #493024;          /* marrom café */
+    --laranja: #a95732;         /* laranja terroso */
+    --caramelo: #c9824d;
+    --bege: #e8d4b8;
+    --bege-claro: #f2e6d5;
+    --creme: #faf4ea;           /* marfim */
+    --branco: #fffdf9;          /* branco quente */
+
+    /* apoio */
+    --texto: #3d2b22;
+    --texto-suave: #6e5849;
+    --borda: #e3d2ba;
+    --linha: rgba(73, 48, 36, 0.14);
+    --sombra: 0 24px 48px -28px rgba(48, 32, 25, 0.35);
 
     /* tipografia */
-    --fonte-titulo: "Fraunces", "Playfair Display", Georgia, serif;
-    --fonte-texto: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+    --fonte-titulo: "Playfair Display", Georgia, "Times New Roman", serif;
+    --fonte-texto: "Manrope", "DM Sans", "Helvetica Neue", Arial, sans-serif;
 
     /* medidas */
     --lateral: max(64px, calc((100% - 1200px) / 2));
     --secao: 112px;
-    --raio: 3px;
+    --raio: 4px;
 }
 
 /* ===== BASE ===== */
@@ -55,19 +59,18 @@ h1, h2, h3 {
     font-family: var(--fonte-titulo);
     font-weight: 500;
     color: var(--marrom);
-    line-height: 1.12;
-    letter-spacing: -0.01em;
+    line-height: 1.15;
     text-wrap: balance;
 }
 
 ::selection {
-    background-color: var(--caramelo-claro);
-    color: var(--marrom-escuro);
+    background-color: var(--bege);
+    color: var(--marrom-profundo);
 }
 
 a:focus-visible,
 button:focus-visible {
-    outline: 2px solid var(--laranja);
+    outline: 2px solid var(--caramelo);
     outline-offset: 3px;
 }
 
@@ -77,35 +80,37 @@ header {
     align-items: center;
     justify-content: space-between;
     gap: 32px;
-    padding: 22px var(--lateral);
-    background-color: var(--creme);
-    border-bottom: 1px solid var(--linha);
+    padding: 20px var(--lateral);
+    background-color: var(--marrom-profundo);
 }
 
 .logo {
     font-family: var(--fonte-titulo);
     font-size: 28px;
     font-weight: 500;
-    letter-spacing: 0.01em;
-    color: var(--marrom);
+    color: var(--creme);
     text-decoration: none;
     white-space: nowrap;
 }
 
 nav {
     display: flex;
-    gap: 36px;
+    gap: 34px;
 }
 
 nav a {
     position: relative;
     color: var(--texto);
     text-decoration: none;
-    font-size: 12.5px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     padding: 4px 0;
+}
+
+header nav a {
+    color: var(--bege);
 }
 
 header nav a::after {
@@ -115,14 +120,14 @@ header nav a::after {
     right: 0;
     bottom: -2px;
     height: 1px;
-    background-color: var(--laranja);
+    background-color: var(--caramelo);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
 }
 
-nav a:hover {
-    color: var(--laranja);
+header nav a:hover {
+    color: var(--branco);
 }
 
 header nav a:hover::after {
@@ -137,35 +142,35 @@ header nav a:hover::after {
     border-radius: var(--raio);
     text-decoration: none;
     font-family: var(--fonte-texto);
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
     line-height: 1.2;
-    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 
 .botao {
-    background-color: var(--marrom);
-    color: var(--creme);
-    border: 1px solid var(--marrom);
+    background-color: var(--laranja);
+    color: var(--branco);
+    border: 1px solid var(--laranja);
 }
 
 .botao:hover {
-    background-color: var(--laranja);
-    border-color: var(--laranja);
+    background-color: var(--marrom);
+    border-color: var(--marrom);
+    transform: translateY(-1px);
 }
 
 .botao-whatsapp {
-    background-color: transparent;
-    color: var(--marrom);
-    border: 1px solid var(--marrom);
+    background-color: var(--laranja);
+    color: var(--branco);
+    border: 1px solid var(--laranja);
     padding: 12px 22px;
 }
 
 .botao-whatsapp:hover {
-    background-color: var(--marrom);
-    color: var(--creme);
+    background-color: var(--caramelo);
+    border-color: var(--caramelo);
 }
 
 /* ===== SEÇÕES (base) ===== */
@@ -178,18 +183,18 @@ main section > * {
 }
 
 main section h2 {
-    font-size: 46px;
+    font-size: 44px;
     margin: 0 0 16px;
 }
 
-/* pequeno traço caramelo acima dos títulos de seção */
+/* pequeno traço acima dos títulos de seção */
 main section h2::before {
     content: "";
     display: block;
-    width: 36px;
-    height: 1px;
-    background-color: var(--laranja);
-    margin-bottom: 22px;
+    width: 40px;
+    height: 2px;
+    background-color: var(--caramelo);
+    margin-bottom: 20px;
 }
 
 main section > p {
@@ -202,66 +207,60 @@ main section > p {
 /* ===== HERO ===== */
 .hero {
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: 80px;
-    background-color: var(--bege);
-    padding-top: 96px;
-    padding-bottom: 120px;
+    gap: 72px;
+    background-color: var(--bege-claro);
+    padding-top: 88px;
+    padding-bottom: 220px;
 }
 
 .etiqueta {
     display: flex;
     align-items: center;
     gap: 14px;
-    font-size: 12px;
-    letter-spacing: 0.22em;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--laranja);
-    font-weight: 500;
     margin: 0;
 }
 
 .etiqueta::before {
     content: "";
     width: 32px;
-    height: 1px;
+    height: 2px;
     background-color: currentColor;
 }
 
 .hero h1 {
-    font-size: 68px;
-    line-height: 1.04;
-    letter-spacing: -0.02em;
-    margin: 24px 0 26px;
+    font-size: 62px;
+    line-height: 1.06;
+    margin: 22px 0 24px;
 }
 
 .hero-texto p:not(.etiqueta) {
     font-size: 19px;
     line-height: 1.65;
     color: var(--texto-suave);
-    max-width: 440px;
-    margin: 0 0 40px;
+    max-width: 460px;
+    margin: 0 0 36px;
 }
 
-/* moldura da foto: arco de forno + contorno deslocado */
+/* foto principal em arco, como a boca de um forno */
 .hero-foto {
     position: relative;
     aspect-ratio: 4 / 5;
-    max-height: 600px;
+    max-height: 620px;
     width: 100%;
     justify-self: end;
-    border-radius: 999px 999px 0 0;
-    background-color: var(--bege-escuro);
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    padding: 28px;
-    overflow: hidden;
+    border-radius: 999px 999px var(--raio) var(--raio);
+    background: var(--bege) url("../img/hero.jpg") center 35% / cover no-repeat;
     box-shadow:
-        inset 0 0 0 1px var(--borda),
-        22px 22px 0 -1px var(--bege),
-        22px 22px 0 0 var(--laranja);
+        var(--sombra),
+        18px 18px 0 -1px var(--bege-claro),
+        18px 18px 0 0 var(--caramelo);
 }
 
 .hero-foto img {
@@ -270,58 +269,89 @@ main section > p {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: inherit;
 }
 
+/* aviso provisório: a foto real já entrou pelo CSS */
 .hero-foto span {
-    position: relative;
-    font-family: var(--fonte-titulo);
-    font-style: italic;
-    font-size: 15px;
-    color: var(--texto-suave);
-    border-top: 1px solid var(--borda);
-    padding-top: 10px;
+    display: none;
 }
 
-/* ===== DESTAQUES (editorial, sem caixas) ===== */
+/* ===== DESTAQUES: cards sobrepostos ao hero ===== */
+.destaques {
+    position: relative;
+    margin-top: -170px;
+    padding-top: 0;
+    background: none;
+}
+
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 40px;
+    gap: 28px;
     margin-top: 8px;
 }
 
 .card {
-    background: none;
-    border: none;
-    border-radius: 0;
-    padding: 0;
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 14px 14px 26px;
 }
 
 .card h3 {
-    font-size: 26px;
-    margin: 0 0 10px;
+    font-size: 25px;
+    margin: 0 10px 8px;
 }
 
 .card p {
-    margin: 0;
+    margin: 0 10px;
     color: var(--texto-suave);
 }
 
-/* espaço da foto (sai quando a foto real entrar) */
+.destaques .card {
+    box-shadow: var(--sombra);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.destaques .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 32px 56px -28px rgba(48, 32, 25, 0.45);
+}
+
+/* espaço da foto em cada card */
 .destaques .card::before {
     content: "";
     display: block;
-    aspect-ratio: 4 / 5;
-    margin-bottom: 24px;
-    background-color: var(--bege);
-    box-shadow: inset 0 0 0 1px var(--borda);
-    outline: 1px solid var(--borda);
-    outline-offset: -12px;
-    transition: transform 0.4s ease;
+    aspect-ratio: 4 / 3.4;
+    margin-bottom: 22px;
+    border-radius: 2px;
+    background-color: var(--bege-claro);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
-.destaques .card:hover::before {
-    transform: translateY(-4px);
+.destaques .card:nth-child(1)::before {
+    background-image: url("../img/pastel-folheado.jpg");
+    background-position: center 60%;
+}
+
+.destaques .card:nth-child(2)::before {
+    background-image: url("../img/brownie-recheado.jpg");
+    background-position: center 62%;
+}
+
+/* salgados: moldura discreta até chegar a foto */
+.destaques .card:nth-child(3)::before {
+    background-color: var(--bege-claro);
+    outline: 1px solid var(--borda);
+    outline-offset: -12px;
+}
+
+/* o título da seção fica sobre o fundo do hero */
+.destaques h2 {
+    margin-bottom: 36px;
 }
 
 /* ===== CARDÁPIO (estilo menu impresso) ===== */
@@ -331,6 +361,8 @@ main section > p {
     grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr));
     column-gap: 96px;
     row-gap: 0;
+    border-top: 1px solid var(--linha);
+    border-bottom: 1px solid var(--linha);
 }
 
 .cardapio > h2,
@@ -351,12 +383,12 @@ main section > p {
 
 .categoria h3 {
     font-family: var(--fonte-texto);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--laranja);
-    margin: 0 0 12px;
+    margin: 0 0 10px;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--marrom);
 }
@@ -373,7 +405,6 @@ main section > p {
     align-items: baseline;
     gap: 12px;
     padding: 12px 0;
-    border-bottom: none;
     font-family: var(--fonte-titulo);
     font-size: 19px;
     color: var(--marrom);
@@ -384,7 +415,8 @@ main section > p {
     order: 1;
     flex: 1;
     min-width: 24px;
-    border-bottom: 1px dotted var(--borda);
+    border-bottom: 1px dotted var(--caramelo);
+    opacity: 0.6;
     transform: translateY(-5px);
 }
 
@@ -392,46 +424,35 @@ main section > p {
     order: 2;
     font-family: var(--fonte-texto);
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
     color: var(--texto-suave);
     white-space: nowrap;
 }
 
-/* ===== COFFEE BREAK (seção escura) ===== */
+/* ===== COFFEE BREAK ===== */
 .coffee-break {
-    background-color: var(--marrom);
-    color: var(--bege);
-}
-
-.coffee-break h2,
-.coffee-break h3 {
-    color: var(--creme);
-}
-
-.coffee-break > p {
-    color: var(--caramelo-claro);
+    background-color: var(--bege-claro);
 }
 
 .coffee-break .card {
-    border-top: 1px solid rgba(236, 225, 207, 0.25);
-    padding-top: 28px;
+    border: none;
+    border-top: 2px solid var(--caramelo);
+    padding: 32px 28px;
+    box-shadow: var(--sombra);
 }
 
+.coffee-break .card h3,
 .coffee-break .card p {
-    color: var(--bege);
-    opacity: 0.85;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.coffee-break .card h3 {
+    margin-bottom: 10px;
 }
 
 .coffee-break .botao {
-    margin-top: 56px;
-    background-color: var(--creme);
-    color: var(--marrom);
-    border-color: var(--creme);
-}
-
-.coffee-break .botao:hover {
-    background-color: var(--caramelo-claro);
-    border-color: var(--caramelo-claro);
+    margin-top: 48px;
 }
 
 /* ===== COMO ENCOMENDAR ===== */
@@ -455,7 +476,7 @@ main section > p {
 .passos {
     margin: 0 0 40px;
     padding-left: 40px;
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .passos li {
@@ -471,15 +492,15 @@ main section > p {
 }
 
 .entrega {
-    background: none;
-    border-radius: 0;
-    border-left: 1px solid var(--laranja);
-    padding: 4px 0 4px 28px;
+    background-color: var(--bege-claro);
+    border-left: 2px solid var(--caramelo);
+    border-radius: 0 var(--raio) var(--raio) 0;
+    padding: 22px 26px;
 }
 
 .entrega h3 {
     font-size: 22px;
-    margin: 0 0 10px;
+    margin: 0 0 8px;
 }
 
 .entrega p {
@@ -491,24 +512,23 @@ main section > p {
 .form-encomenda {
     background-color: var(--branco);
     border: 1px solid var(--borda);
+    border-top: 3px solid var(--laranja);
     border-radius: var(--raio);
-    padding: 44px;
+    padding: 40px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 30px 60px -40px rgba(58, 36, 24, 0.35);
+    box-shadow: var(--sombra);
 }
 
 .form-encomenda h3 {
     font-size: 30px;
-    margin: 0 0 28px;
+    margin: 0 0 26px;
 }
 
 .form-encomenda label {
-    font-size: 11.5px;
-    font-weight: 500;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--texto-suave);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--marrom);
     margin-bottom: 8px;
 }
 
@@ -522,7 +542,7 @@ main section > p {
     border: 1px solid var(--borda);
     border-radius: var(--raio);
     padding: 13px 15px;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
     width: 100%;
     transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
@@ -536,8 +556,8 @@ main section > p {
 .form-encomenda textarea:focus {
     outline: none;
     background-color: var(--branco);
-    border-color: var(--laranja);
-    box-shadow: 0 0 0 3px rgba(168, 100, 42, 0.15);
+    border-color: var(--caramelo);
+    box-shadow: 0 0 0 3px rgba(201, 130, 77, 0.2);
 }
 
 .form-encomenda ::placeholder {
@@ -547,16 +567,17 @@ main section > p {
 .form-encomenda button {
     cursor: pointer;
     align-self: stretch;
-    margin-top: 8px;
+    margin-top: 6px;
     padding: 17px 30px;
+    font-size: 15px;
 }
 
 /* ===== SOBRE ===== */
 .sobre {
-    background-color: var(--branco);
+    background-color: var(--creme);
     display: grid;
-    grid-template-columns: 0.8fr 1.2fr;
-    column-gap: 96px;
+    grid-template-columns: 0.9fr 1.1fr;
+    column-gap: 88px;
     align-items: start;
 }
 
@@ -564,31 +585,43 @@ main section > p {
     grid-row: span 2;
 }
 
+/* foto da produção artesanal, abaixo do título */
+.sobre h2::after {
+    content: "";
+    display: block;
+    aspect-ratio: 4 / 4.4;
+    margin-top: 36px;
+    border-radius: var(--raio);
+    background: var(--bege) url("../img/brownie-artesanal.jpg") center 40% / cover no-repeat;
+    box-shadow: var(--sombra);
+}
+
 .sobre p {
     font-size: 18px;
-    max-width: 640px;
-    margin: 0 0 20px;
+    max-width: 600px;
+    margin: 0 0 22px;
     color: var(--texto-suave);
 }
 
 .sobre > p:first-of-type {
     font-family: var(--fonte-titulo);
-    font-size: 26px;
+    font-size: 27px;
     line-height: 1.45;
     color: var(--marrom);
+    margin-top: 62px;
 }
 
 .sobre > p:first-of-type::first-letter {
     float: left;
-    font-size: 78px;
-    line-height: 0.85;
-    padding: 6px 12px 0 0;
+    font-size: 82px;
+    line-height: 0.82;
+    padding: 8px 12px 0 0;
     color: var(--laranja);
 }
 
 /* ===== LOCALIZAÇÃO ===== */
 .localizacao {
-    background-color: var(--bege);
+    background-color: var(--bege-claro);
     display: grid;
     grid-template-columns: 1fr 1.3fr;
     grid-template-areas:
@@ -598,7 +631,7 @@ main section > p {
         "subtitulo mapa"
         "horarios mapa"
         "botao mapa";
-    column-gap: 96px;
+    column-gap: 88px;
     align-content: start;
 }
 
@@ -620,37 +653,36 @@ main section > p {
     border-radius: 999px;
     padding: 7px 16px;
     font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.04em;
-    margin: 8px 0 32px;
+    font-weight: 600;
+    margin: 8px 0 30px;
 }
 
 .status::before {
     content: "";
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
-    background-color: var(--laranja);
+    background-color: var(--caramelo);
 }
 
 .status.aberto {
-    background-color: #eaf1e4;
-    border-color: #c4d6b8;
-    color: #35562a;
+    background-color: #eaf2e4;
+    border-color: #c4d8b6;
+    color: #33582a;
 }
 
 .status.aberto::before {
-    background-color: #4f7d3c;
+    background-color: #4c8139;
 }
 
 .status.fechado {
-    background-color: #f5e6e0;
-    border-color: #e2c3b8;
-    color: #8a3a26;
+    background-color: #f7e5de;
+    border-color: #e6c2b4;
+    color: #8f3a22;
 }
 
 .status.fechado::before {
-    background-color: #b0503a;
+    background-color: #b44e33;
 }
 
 .localizacao address {
@@ -663,18 +695,18 @@ main section > p {
 
 .localizacao h3 {
     font-family: var(--fonte-texto);
-    font-size: 12px;
-    font-weight: 500;
-    letter-spacing: 0.22em;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--laranja);
-    margin: 40px 0 8px;
+    margin: 38px 0 6px;
 }
 
 .horarios {
     list-style: none;
     padding: 0;
-    margin: 0 0 40px;
+    margin: 0 0 38px;
 }
 
 .horarios li {
@@ -686,11 +718,10 @@ main section > p {
     width: 100%;
     height: 100%;
     min-height: 460px;
-    border: 10px solid var(--branco);
-    border-radius: 0;
-    background-color: var(--bege-escuro);
-    box-shadow: 0 30px 60px -40px rgba(58, 36, 24, 0.4);
-    filter: grayscale(0.35) sepia(0.15);
+    border: 8px solid var(--branco);
+    border-radius: var(--raio);
+    background-color: var(--bege);
+    box-shadow: var(--sombra);
 }
 
 /* ===== RODAPÉ ===== */
@@ -699,26 +730,26 @@ footer {
     grid-template-columns: 1fr auto;
     column-gap: 64px;
     align-items: end;
-    padding: 88px var(--lateral) 40px;
-    background-color: var(--marrom-escuro);
+    padding: 80px var(--lateral) 36px;
+    background-color: var(--marrom-profundo);
     color: var(--bege);
 }
 
 footer .logo {
     grid-column: 1;
-    font-size: 44px;
+    font-size: 42px;
     line-height: 1;
-    color: var(--creme);
     margin: 0 0 14px;
 }
 
 footer p {
     margin: 0;
-    color: var(--caramelo-claro);
+    color: var(--bege);
 }
 
 footer > p:nth-of-type(2) {
     grid-column: 1;
+    opacity: 0.85;
 }
 
 footer nav {
@@ -733,30 +764,29 @@ footer > p:nth-of-type(3) {
     grid-row: 2;
     justify-self: end;
     font-size: 14px;
+    opacity: 0.85;
 }
 
 footer > p:nth-of-type(4) {
     grid-column: 1 / -1;
-    margin-top: 64px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(236, 225, 207, 0.15);
+    margin-top: 60px;
+    padding-top: 22px;
+    border-top: 1px solid rgba(232, 212, 184, 0.18);
 }
 
 footer nav a {
     color: var(--creme);
     text-decoration: none;
-    border-bottom: 1px solid rgba(236, 225, 207, 0.35);
+    border-bottom: 1px solid var(--caramelo);
 }
 
 footer nav a:hover {
-    color: var(--caramelo-claro);
-    border-bottom-color: var(--caramelo-claro);
+    color: var(--caramelo);
 }
 
 footer small {
-    font-size: 12px;
-    letter-spacing: 0.04em;
-    opacity: 0.7;
+    font-size: 12.5px;
+    opacity: 0.65;
 }
 
 /* ==========================================================
@@ -770,7 +800,7 @@ footer small {
 
     header {
         flex-wrap: wrap;
-        row-gap: 16px;
+        row-gap: 14px;
     }
 
     header nav {
@@ -779,15 +809,20 @@ footer small {
         justify-content: center;
         gap: 28px;
         padding-top: 14px;
-        border-top: 1px solid var(--linha);
+        border-top: 1px solid rgba(232, 212, 184, 0.18);
     }
 
     .hero {
         gap: 48px;
+        padding-bottom: 190px;
     }
 
     .hero h1 {
-        font-size: 54px;
+        font-size: 50px;
+    }
+
+    .destaques {
+        margin-top: -140px;
     }
 
     .cardapio,
@@ -836,7 +871,7 @@ footer small {
 
     .botao-whatsapp {
         padding: 10px 16px;
-        font-size: 11px;
+        font-size: 13px;
     }
 
     main section h2 {
@@ -849,13 +884,13 @@ footer small {
 
     .hero {
         grid-template-columns: 1fr;
-        gap: 48px;
-        padding-top: 56px;
-        padding-bottom: 72px;
+        gap: 44px;
+        padding-top: 52px;
+        padding-bottom: 150px;
     }
 
     .hero h1 {
-        font-size: 42px;
+        font-size: 40px;
     }
 
     .hero-texto p:not(.etiqueta) {
@@ -863,21 +898,21 @@ footer small {
     }
 
     .hero-foto {
-        aspect-ratio: 4 / 3.4;
+        aspect-ratio: 4 / 4.2;
         justify-self: stretch;
         width: calc(100% - 12px);
         box-shadow:
-            inset 0 0 0 1px var(--borda),
-            12px 12px 0 -1px var(--bege),
-            12px 12px 0 0 var(--laranja);
+            var(--sombra),
+            12px 12px 0 -1px var(--bege-claro),
+            12px 12px 0 0 var(--caramelo);
+    }
+
+    .destaques {
+        margin-top: -100px;
     }
 
     .cards {
-        gap: 48px;
-    }
-
-    .destaques .card::before {
-        aspect-ratio: 4 / 3;
+        gap: 24px;
     }
 
     .categoria {
@@ -898,7 +933,7 @@ footer small {
     }
 
     .form-encomenda {
-        margin-top: 48px;
+        margin-top: 44px;
         padding: 28px 22px;
     }
 
@@ -910,12 +945,17 @@ footer small {
         grid-row: auto;
     }
 
+    .sobre h2::after {
+        aspect-ratio: 4 / 3.4;
+    }
+
     .sobre > p:first-of-type {
         font-size: 21px;
+        margin-top: 36px;
     }
 
     .sobre > p:first-of-type::first-letter {
-        font-size: 62px;
+        font-size: 64px;
     }
 
     .localizacao {
@@ -936,12 +976,12 @@ footer small {
 
     .mapa {
         min-height: 300px;
-        margin-top: 48px;
+        margin-top: 44px;
     }
 
     footer {
         grid-template-columns: 1fr;
-        padding-top: 64px;
+        padding-top: 60px;
     }
 
     footer .logo {
@@ -958,7 +998,7 @@ footer small {
     footer nav {
         flex-direction: column;
         gap: 10px;
-        margin: 32px 0 16px;
+        margin: 30px 0 16px;
         align-items: flex-start;
     }
 
