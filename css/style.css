@@ -1,30 +1,78 @@
-.botao-whatsapp {
-    background-color: #c46a2b;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
+/* ===== CORES E FONTES DA BELLA VISTA ===== */
+:root {
+    --marrom: #4a2c1a;
+    --laranja: #c46a2b;
+    --bege: #f3e6d0;
+    --creme: #fbf6ee;
+    --texto: #3b2a1c;
+    --fonte-titulo: "Playfair Display", Georgia, serif;
+    --fonte-texto: "DM Sans", Arial, sans-serif;
+}
+
+/* ===== BASE ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: var(--creme);
+    color: var(--texto);
+    font-family: var(--fonte-texto);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--fonte-titulo);
+    color: var(--marrom);
+}
+
+/* ===== HEADER ===== */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: var(--creme);
+}
+
+.logo {
+    font-family: var(--fonte-titulo);
+    font-size: 26px;
+    color: var(--marrom);
     text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: 28px;
 }
 
 nav a {
-    color: #5a3a22;
+    color: var(--texto);
     text-decoration: none;
 }
 
-.hero {
-    background-color: #f3e6d0;
-    padding: 60px 20px;
+nav a:hover {
+    color: var(--laranja);
 }
 
-.hero h1 {
-    color: #5a3a22;
-    font-size: 64px;
+/* ===== BOTÕES ===== */
+.botao,
+.botao-whatsapp {
+    display: inline-block;
+    padding: 12px 26px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .botao {
-    background-color: #5a3a22;
+    background-color: var(--marrom);
     color: white;
-    padding: 12px 24px;
-    border-radius: 30px;
-    text-decoration: none;
+}
+
+.botao-whatsapp {
+    background-color: var(--laranja);
+    color: white;
 }
