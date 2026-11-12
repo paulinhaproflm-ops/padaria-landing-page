@@ -290,30 +290,8 @@ main section > p {
     border-color: var(--caramelo);
 }
 
-/* foto principal em arco, como a boca de um forno */
+/* a foto do hero fica no fundo da seção; o bloco da foto em arco não aparece */
 .hero-foto {
-    position: absolute;
-    right: var(--lateral);
-    top: 210px;
-    aspect-ratio: 3 / 4;
-    width: 220px;
-    border-radius: 999px 999px var(--raio) var(--raio);
-    border: 6px solid var(--creme);
-    background: var(--bege) url("../img/hero.jpg") center 30% / cover no-repeat;
-    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.6);
-}
-
-.hero-foto img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: inherit;
-}
-
-/* aviso provisório: a foto real já entrou pelo CSS */
-.hero-foto span {
     display: none;
 }
 
@@ -837,23 +815,6 @@ footer small {
 }
 
 /* ==========================================================
-   TELAS MÉDIAS (até 1240px)
-   ========================================================== */
-@media (max-width: 1240px) {
-    .hero {
-        gap: 48px;
-    }
-
-    .hero-foto {
-        position: relative;
-        right: auto;
-        top: auto;
-        width: 200px;
-        justify-self: center;
-    }
-}
-
-/* ==========================================================
    TABLET (até 1024px)
    ========================================================== */
 @media (max-width: 1024px) {
@@ -984,10 +945,6 @@ footer small {
         font-size: 17px;
     }
 
-    .hero-foto {
-        width: 180px;
-        border-width: 5px;
-    }
 
     .destaques {
         margin-top: -100px;
