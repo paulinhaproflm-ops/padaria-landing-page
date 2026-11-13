@@ -325,15 +325,19 @@ main section > p {
     justify-content: center;
 }
 
+/* o título principal mostra a logo; o nome continua no HTML
+   para leitores de tela e para o Google */
 .hero h1 {
-    font-size: 84px;
-    font-weight: 600;
-    line-height: 1;
-    letter-spacing: -0.015em;
-    color: var(--branco);
-    margin: 26px auto 28px;
-    max-width: 780px;
-    text-shadow: 0 2px 24px rgba(0, 0, 0, 0.25);
+    width: 440px;
+    max-width: 100%;
+    aspect-ratio: 1000 / 651;
+    margin: 30px auto 30px;
+    background: url("../img/logo-bella-vista-branca.png") center / contain no-repeat;
+    color: transparent;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.35));
 }
 
 .hero-texto p:not(.etiqueta) {
@@ -927,7 +931,7 @@ footer small {
     }
 
     .hero h1 {
-        font-size: 62px;
+        width: 380px;
     }
 
     .destaques {
@@ -1012,7 +1016,8 @@ footer small {
     }
 
     .hero h1 {
-        font-size: 44px;
+        width: 270px;
+        margin: 22px auto 24px;
     }
 
     .hero .etiqueta {
