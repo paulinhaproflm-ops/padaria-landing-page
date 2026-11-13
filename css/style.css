@@ -4,9 +4,10 @@
    moderna, acolhedora e profissional.
    ========================================================== */
 
-/* Fontes: Playfair Display (títulos), Playfair Display SC (rótulos)
-   e Manrope (textos e navegação) */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display+SC:wght@400;700&family=Manrope:wght@400;500;600;700&display=swap");
+/* Fontes inspiradas na apresentação de referência:
+   Young Serif no lugar da ITC Benguiat (títulos) e
+   Lexend no lugar da TT Chocolates (textos) */
+@import url("https://fonts.googleapis.com/css2?family=Young+Serif&family=Lexend:wght@300;400;500;600&display=swap");
 
 /* ===== DESIGN SYSTEM =====
    Estilo: minimalismo editorial para padaria (skill UI/UX Pro Max).
@@ -71,9 +72,13 @@
     --linha: var(--color-divider);
 
     /* tipografia */
-    --fonte-titulo: "Playfair Display", Georgia, "Times New Roman", serif;
-    --fonte-rotulo: "Playfair Display SC", "Playfair Display", Georgia, serif;
-    --fonte-texto: "Manrope", "DM Sans", "Helvetica Neue", Arial, sans-serif;
+    --fonte-titulo: "Young Serif", Georgia, "Times New Roman", serif;
+    --fonte-rotulo: "Young Serif", Georgia, serif;
+    --fonte-texto: "Lexend", "Manrope", "Helvetica Neue", Arial, sans-serif;
+
+    /* caixa creme da referência (caixa de pedido e etiquetas) */
+    --creme-pedido: #fbe2bb;
+    --creme-pedido-borda: rgba(73, 48, 36, 0.22);
 
     /* medidas */
     --lateral: max(64px, calc((100% - 1200px) / 2));
@@ -256,7 +261,10 @@ main section > * {
 }
 
 main section h2 {
-    font-size: 44px;
+    font-size: 42px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
     margin: 0 0 16px;
 }
 
@@ -323,6 +331,20 @@ main section > p {
 
 .hero .etiqueta {
     justify-content: center;
+    justify-self: center;
+    display: inline-flex;
+    background-color: var(--creme-pedido);
+    color: var(--marrom);
+    border-radius: 999px;
+    padding: 9px 24px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+}
+
+.hero .etiqueta::before,
+.hero .etiqueta::after {
+    display: none;
 }
 
 /* o título principal mostra a logo; o nome continua no HTML
@@ -477,15 +499,17 @@ main section > p {
 }
 
 .categoria h3 {
-    font-family: var(--fonte-rotulo);
-    font-size: 17px;
-    font-weight: 400;
-    letter-spacing: 0.06em;
-    text-transform: none;
-    color: var(--color-accent-text);
-    margin: 0 0 10px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--marrom);
+    display: inline-block;
+    font-family: var(--fonte-texto);
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--marrom);
+    background-color: var(--creme-pedido);
+    border-radius: 999px;
+    padding: 7px 22px;
+    margin: 0 0 14px;
 }
 
 .categoria ul {
@@ -595,14 +619,15 @@ main section > p {
 }
 
 .entrega {
-    background-color: var(--bege-claro);
-    border-left: 2px solid var(--caramelo);
-    border-radius: 0 var(--raio) var(--raio) 0;
-    padding: 22px 26px;
+    background-color: var(--creme-pedido);
+    border-radius: 6px;
+    padding: 24px 28px;
 }
 
 .entrega h3 {
     font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
     margin: 0 0 8px;
 }
 
@@ -613,18 +638,19 @@ main section > p {
 
 /* ===== FORMULÁRIO ===== */
 .form-encomenda {
-    background-color: var(--branco);
-    border: 1px solid var(--borda);
-    border-top: 3px solid var(--laranja);
-    border-radius: var(--raio);
-    padding: 40px;
+    background-color: var(--creme-pedido);
+    border: none;
+    border-radius: 6px;
+    padding: 44px;
     display: flex;
     flex-direction: column;
-    box-shadow: var(--sombra);
+    box-shadow: none;
 }
 
 .form-encomenda h3 {
     font-size: 30px;
+    font-weight: 400;
+    text-transform: uppercase;
     margin: 0 0 26px;
 }
 
@@ -641,9 +667,9 @@ main section > p {
     font: inherit;
     font-size: 16px;
     color: var(--texto);
-    background-color: var(--creme);
-    border: 1px solid var(--borda);
-    border-radius: var(--raio);
+    background-color: var(--branco);
+    border: 1px solid var(--creme-pedido-borda);
+    border-radius: 6px;
     padding: 13px 15px;
     margin-bottom: 22px;
     width: 100%;
