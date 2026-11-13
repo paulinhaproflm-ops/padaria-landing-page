@@ -295,7 +295,7 @@ main section > p {
     text-align: center;
     min-height: 860px;
     padding-top: 190px;
-    padding-bottom: 250px;
+    padding-bottom: 140px;
     background-color: var(--marrom-profundo);
     background-image:
         linear-gradient(180deg, rgba(48, 32, 25, 0.72) 0%, rgba(48, 32, 25, 0.6) 45%, rgba(48, 32, 25, 0.82) 100%),
@@ -390,9 +390,9 @@ main section > p {
 /* ===== DESTAQUES: cards sobrepostos ao hero ===== */
 .destaques {
     position: relative;
-    margin-top: -170px;
-    padding-top: 0;
-    background: none;
+    margin-top: 0;
+    background-color: var(--marrom);
+    border-top: 1px solid rgba(250, 244, 234, 0.12);
 }
 
 .cards {
@@ -419,49 +419,63 @@ main section > p {
     color: var(--texto-suave);
 }
 
-/* destaques: fotos em círculo com contorno creme (referência "Best Seller") */
+/* destaques no estilo "Our Menu" da referência:
+   foto retangular, etiqueta creme em pílula e texto curto */
+.destaques .cards {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 28px;
+}
+
 .destaques .card {
     background: none;
     border: none;
     box-shadow: none;
     padding: 0;
-    text-align: center;
+    transition: transform 250ms ease;
+}
+
+.destaques .card:hover {
+    transform: translateY(-4px);
 }
 
 .destaques .card h3 {
-    margin: 0 0 8px;
+    font-family: var(--fonte-texto);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--marrom);
+    background-color: var(--creme-pedido);
+    border-radius: 999px;
+    padding: 9px 16px;
+    margin: 0 0 14px;
 }
 
 .destaques .card p {
-    max-width: 300px;
-    margin: 0 auto;
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--bege);
 }
 
 .destaques .card::before {
     content: "";
     display: block;
-    width: min(270px, 100%);
-    aspect-ratio: 1 / 1;
-    margin: 0 auto 26px;
-    border-radius: 50%;
-    border: 10px solid var(--creme-pedido);
+    width: 100%;
+    aspect-ratio: 1.07 / 1;
+    margin: 0 0 16px;
+    border-radius: 0;
     background-color: var(--bege-claro);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    box-shadow: var(--sombra);
-    transition: transform 250ms ease, box-shadow 250ms ease;
-}
-
-.destaques .card:hover::before {
-    transform: translateY(-4px);
-    box-shadow: var(--sombra-hover);
 }
 
 .destaques .card:nth-child(1)::before {
     background-image: url("../img/pastel-folheado.jpg");
     background-position: 45% 60%;
-    background-size: 150%;
+    background-size: cover;
 }
 
 .destaques .card:nth-child(2)::before {
@@ -471,8 +485,8 @@ main section > p {
 
 .destaques .card:nth-child(3)::before {
     background-image: url("../img/salgados.jpg");
-    background-position: center 62%;
-    background-size: 135%;
+    background-position: center 64%;
+    background-size: cover;
 }
 
 /* o título da seção fica sobre o fundo do hero */
@@ -969,7 +983,7 @@ footer small {
         gap: 48px;
         min-height: 0;
         padding-top: 250px;
-        padding-bottom: 200px;
+        padding-bottom: 110px;
     }
 
     .hero h1 {
@@ -977,7 +991,7 @@ footer small {
     }
 
     .destaques {
-        margin-top: -140px;
+        margin-top: 0;
     }
 
     .cardapio,
@@ -1050,7 +1064,7 @@ footer small {
         grid-template-columns: 1fr;
         gap: 40px;
         padding-top: 200px;
-        padding-bottom: 150px;
+        padding-bottom: 90px;
         background-image:
             linear-gradient(180deg, rgba(48, 32, 25, 0.9) 0%, rgba(48, 32, 25, 0.72) 55%, rgba(48, 32, 25, 0.85) 100%),
             url("../img/hero-brownie.jpg");
@@ -1078,7 +1092,7 @@ footer small {
 
 
     .destaques {
-        margin-top: -100px;
+        margin-top: 0;
     }
 
     .cards {
