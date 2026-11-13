@@ -4,30 +4,75 @@
    moderna, acolhedora e profissional.
    ========================================================== */
 
-/* Fontes: Playfair Display (títulos) e Manrope (textos e navegação) */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap");
+/* Fontes: Playfair Display (títulos), Playfair Display SC (rótulos)
+   e Manrope (textos e navegação) */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display+SC:wght@400;700&family=Manrope:wght@400;500;600;700&display=swap");
 
-/* ===== CORES, FONTES E MEDIDAS ===== */
+/* ===== DESIGN SYSTEM =====
+   Estilo: minimalismo editorial para padaria (skill UI/UX Pro Max).
+   Todas as cores passaram no teste de contraste WCAG (mínimo 4.5:1 em textos). */
 :root {
-    /* paleta da marca */
-    --marrom-profundo: #302019;
-    --marrom: #493024;          /* marrom café */
-    --laranja: #a95732;         /* laranja terroso */
-    --caramelo: #c9824d;
-    --bege: #e8d4b8;
-    --bege-claro: #f2e6d5;
-    --creme: #faf4ea;           /* marfim */
-    --branco: #fffdf9;          /* branco quente */
+    /* 1. Paleta da marca (valores brutos) */
+    --brand-marrom-profundo: #302019;
+    --brand-marrom-cafe: #493024;
+    --brand-laranja: #a95732;
+    --brand-laranja-escuro: #94492a;
+    --brand-caramelo: #c9824d;
+    --brand-bege: #e8d4b8;
+    --brand-bege-claro: #f2e6d5;
+    --brand-marfim: #faf4ea;
+    --brand-branco: #fffdf9;
 
-    /* apoio */
-    --texto: #3d2b22;
-    --texto-suave: #6e5849;
-    --borda: #e3d2ba;
-    --linha: rgba(73, 48, 36, 0.14);
-    --sombra: 0 24px 48px -28px rgba(48, 32, 25, 0.35);
+    /* 2. Tokens semânticos (use estes nos componentes) */
+    --color-background: var(--brand-marfim);
+    --color-surface: var(--brand-branco);
+    --color-surface-alt: var(--brand-bege-claro);
+    --color-foreground: #3d2b22;
+    --color-heading: var(--brand-marrom-cafe);
+    --color-muted-foreground: #6e5849;
+    --color-primary: var(--brand-laranja);
+    --color-on-primary: var(--brand-branco);
+    --color-primary-hover: var(--brand-marrom-cafe);
+    --color-accent: var(--brand-caramelo);
+    --color-accent-text: var(--brand-laranja-escuro);
+    --color-dark: var(--brand-marrom-profundo);
+    --color-on-dark: var(--brand-bege);
+    --color-border: #e3d2ba;
+    --color-divider: rgba(73, 48, 36, 0.14);
+    --color-placeholder: #7d695b;
+    --color-ring: var(--brand-caramelo);
+
+    /* 3. Espaçamento (densidade espaçosa: 24 a 96px) */
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-5: 48px;
+    --space-6: 64px;
+    --space-7: 96px;
+
+    /* 4. Sombras e movimento discretos */
+    --sombra: 0 18px 40px -30px rgba(48, 32, 25, 0.4);
+    --sombra-hover: 0 24px 48px -28px rgba(48, 32, 25, 0.45);
+    --transicao: 200ms ease;
+
+    /* 5. Nomes usados pelo projeto (apontam para os tokens acima) */
+    --marrom-profundo: var(--brand-marrom-profundo);
+    --marrom: var(--color-heading);
+    --laranja: var(--color-primary);
+    --caramelo: var(--color-accent);
+    --bege: var(--brand-bege);
+    --bege-claro: var(--color-surface-alt);
+    --creme: var(--color-background);
+    --branco: var(--color-surface);
+    --texto: var(--color-foreground);
+    --texto-suave: var(--color-muted-foreground);
+    --borda: var(--color-border);
+    --linha: var(--color-divider);
 
     /* tipografia */
     --fonte-titulo: "Playfair Display", Georgia, "Times New Roman", serif;
+    --fonte-rotulo: "Playfair Display SC", "Playfair Display", Georgia, serif;
     --fonte-texto: "Manrope", "DM Sans", "Helvetica Neue", Arial, sans-serif;
 
     /* medidas */
@@ -70,7 +115,7 @@ h1, h2, h3 {
 
 a:focus-visible,
 button:focus-visible {
-    outline: 2px solid var(--caramelo);
+    outline: 2px solid var(--color-ring);
     outline-offset: 3px;
 }
 
@@ -97,6 +142,9 @@ header {
     color: var(--creme);
     text-decoration: none;
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
 }
 
 nav {
@@ -112,7 +160,10 @@ nav a {
     font-weight: 600;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    padding: 4px 0;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0;
 }
 
 header nav a {
@@ -124,7 +175,7 @@ header nav a::after {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -2px;
+    bottom: 8px;
     height: 1px;
     background-color: var(--caramelo);
     transform: scaleX(0);
@@ -143,7 +194,10 @@ header nav a:hover::after {
 /* ===== BOTÕES ===== */
 .botao,
 .botao-whatsapp {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
     padding: 15px 30px;
     border-radius: var(--raio);
     text-decoration: none;
@@ -152,7 +206,7 @@ header nav a:hover::after {
     font-weight: 700;
     letter-spacing: 0.06em;
     line-height: 1.2;
-    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    transition: background-color var(--transicao), color var(--transicao), border-color var(--transicao), transform var(--transicao);
 }
 
 .botao {
@@ -286,8 +340,8 @@ main section > p {
 }
 
 .hero .botao:hover {
-    background-color: var(--caramelo);
-    border-color: var(--caramelo);
+    background-color: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
 }
 
 /* a foto do hero fica no fundo da seção; o bloco da foto em arco não aparece */
@@ -329,12 +383,12 @@ main section > p {
 
 .destaques .card {
     box-shadow: var(--sombra);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    transition: transform 250ms ease, box-shadow 250ms ease;
 }
 
 .destaques .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 32px 56px -28px rgba(48, 32, 25, 0.45);
+    transform: translateY(-3px);
+    box-shadow: var(--sombra-hover);
 }
 
 /* espaço da foto em cada card */
@@ -407,12 +461,12 @@ main section > p {
 }
 
 .categoria h3 {
-    font-family: var(--fonte-texto);
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--laranja);
+    font-family: var(--fonte-rotulo);
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: none;
+    color: var(--color-accent-text);
     margin: 0 0 10px;
     padding-bottom: 12px;
     border-bottom: 1px solid var(--marrom);
@@ -422,6 +476,14 @@ main section > p {
     list-style: none;
     margin: 0;
     padding: 0;
+}
+
+.categoria li {
+    transition: color var(--transicao);
+}
+
+.categoria li:hover {
+    color: var(--color-accent-text);
 }
 
 /* nome ........ preço */
@@ -513,7 +575,7 @@ main section > p {
     font-family: var(--fonte-titulo);
     font-style: italic;
     font-size: 22px;
-    color: var(--laranja);
+    color: var(--color-accent-text);
 }
 
 .entrega {
@@ -586,7 +648,7 @@ main section > p {
 }
 
 .form-encomenda ::placeholder {
-    color: #a8968a;
+    color: var(--color-placeholder);
 }
 
 .form-encomenda button {
@@ -676,8 +738,8 @@ main section > p {
     background-color: var(--branco);
     border: 1px solid var(--borda);
     border-radius: 999px;
-    padding: 7px 16px;
-    font-size: 13px;
+    padding: 9px 18px;
+    font-size: 14px;
     font-weight: 600;
     margin: 8px 0 30px;
 }
@@ -719,12 +781,12 @@ main section > p {
 }
 
 .localizacao h3 {
-    font-family: var(--fonte-texto);
-    font-size: 12.5px;
-    font-weight: 700;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--laranja);
+    font-family: var(--fonte-rotulo);
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: none;
+    color: var(--color-accent-text);
     margin: 38px 0 6px;
 }
 
@@ -735,7 +797,10 @@ main section > p {
 }
 
 .horarios li {
-    padding: 12px 0;
+    padding: 14px 0;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--color-heading);
     border-bottom: 1px solid var(--linha);
 }
 
@@ -801,8 +866,9 @@ footer > p:nth-of-type(4) {
 
 footer nav a {
     color: var(--creme);
-    text-decoration: none;
-    border-bottom: 1px solid var(--caramelo);
+    text-decoration: underline;
+    text-decoration-color: var(--caramelo);
+    text-underline-offset: 6px;
 }
 
 footer nav a:hover {
