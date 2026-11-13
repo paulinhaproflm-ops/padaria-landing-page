@@ -664,6 +664,7 @@ main section > p {
     background-color: var(--creme);
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
+    grid-template-rows: auto 1fr;
     column-gap: 88px;
     align-items: start;
 }
@@ -676,10 +677,10 @@ main section > p {
 .sobre h2::after {
     content: "";
     display: block;
-    aspect-ratio: 4 / 4.4;
+    aspect-ratio: 4 / 5;
     margin-top: 36px;
     border-radius: var(--raio);
-    background: var(--bege) url("../img/brownie-artesanal.jpg") center 40% / cover no-repeat;
+    background: var(--bege) url("../img/nossa-historia.jpg") center 55% / cover no-repeat;
     box-shadow: var(--sombra);
 }
 
@@ -1044,6 +1045,7 @@ footer small {
 
     .sobre {
         grid-template-columns: 1fr;
+        grid-template-rows: none;
     }
 
     .sobre h2 {
@@ -1051,7 +1053,7 @@ footer small {
     }
 
     .sobre h2::after {
-        aspect-ratio: 4 / 3.4;
+        aspect-ratio: 4 / 4.2;
     }
 
     .sobre > p:first-of-type {
