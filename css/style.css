@@ -789,6 +789,66 @@ main section > p {
     border-radius: 0 0 10px 10px;
 }
 
+/* ===== GALERIA (estilo "Our Latest Work" da referência) ===== */
+.galeria {
+    background-color: var(--marrom);
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+
+.galeria-topo {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 64px;
+    align-items: end;
+    padding: 0 var(--lateral) 48px;
+}
+
+.galeria h2 {
+    color: var(--creme);
+    margin: 0;
+}
+
+.galeria-topo p {
+    color: var(--bege);
+    font-size: 15px;
+    line-height: 1.7;
+    margin: 0 0 12px;
+    max-width: none;
+}
+
+.galeria-fotos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+}
+
+.galeria-fotos img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: filter 250ms ease;
+}
+
+.galeria-fotos img:hover {
+    filter: brightness(1.08);
+}
+
+@media (max-width: 768px) {
+    .galeria-topo {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding-bottom: 32px;
+    }
+
+    .galeria-fotos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
+    }
+}
+
 /* ===== LOCALIZAÇÃO ===== */
 .localizacao {
     background-color: var(--bege-claro);
