@@ -469,11 +469,10 @@ main section > p {
     background-position: center 62%;
 }
 
-/* salgados: círculo discreto até chegar a foto */
 .destaques .card:nth-child(3)::before {
-    background-color: var(--bege-claro);
-    outline: 1px solid var(--borda);
-    outline-offset: -20px;
+    background-image: url("../img/salgados.jpg");
+    background-position: center 62%;
+    background-size: 135%;
 }
 
 /* o título da seção fica sobre o fundo do hero */
