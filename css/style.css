@@ -419,32 +419,49 @@ main section > p {
     color: var(--texto-suave);
 }
 
+/* destaques: fotos em círculo com contorno creme (referência "Best Seller") */
 .destaques .card {
-    box-shadow: var(--sombra);
-    transition: transform 250ms ease, box-shadow 250ms ease;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    text-align: center;
 }
 
-.destaques .card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--sombra-hover);
+.destaques .card h3 {
+    margin: 0 0 8px;
 }
 
-/* espaço da foto em cada card */
+.destaques .card p {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
 .destaques .card::before {
     content: "";
     display: block;
-    aspect-ratio: 4 / 3.4;
-    margin-bottom: 22px;
-    border-radius: 2px;
+    width: min(270px, 100%);
+    aspect-ratio: 1 / 1;
+    margin: 0 auto 26px;
+    border-radius: 50%;
+    border: 10px solid var(--creme-pedido);
     background-color: var(--bege-claro);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    box-shadow: var(--sombra);
+    transition: transform 250ms ease, box-shadow 250ms ease;
+}
+
+.destaques .card:hover::before {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-hover);
 }
 
 .destaques .card:nth-child(1)::before {
     background-image: url("../img/pastel-folheado.jpg");
-    background-position: center 60%;
+    background-position: 45% 60%;
+    background-size: 150%;
 }
 
 .destaques .card:nth-child(2)::before {
@@ -452,11 +469,11 @@ main section > p {
     background-position: center 62%;
 }
 
-/* salgados: moldura discreta até chegar a foto */
+/* salgados: círculo discreto até chegar a foto */
 .destaques .card:nth-child(3)::before {
     background-color: var(--bege-claro);
     outline: 1px solid var(--borda);
-    outline-offset: -12px;
+    outline-offset: -20px;
 }
 
 /* o título da seção fica sobre o fundo do hero */
