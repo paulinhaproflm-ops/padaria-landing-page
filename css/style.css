@@ -291,7 +291,7 @@ main section > p {
     background-color: var(--marrom-profundo);
     background-image:
         linear-gradient(180deg, rgba(48, 32, 25, 0.72) 0%, rgba(48, 32, 25, 0.6) 45%, rgba(48, 32, 25, 0.82) 100%),
-        url("../img/brownie-farelos.jpg");
+        url("../img/hero-brownie.jpg");
     background-size: cover;
     background-position: center 58%;
     background-repeat: no-repeat;
@@ -1007,7 +1007,7 @@ footer small {
         padding-bottom: 150px;
         background-image:
             linear-gradient(180deg, rgba(48, 32, 25, 0.9) 0%, rgba(48, 32, 25, 0.72) 55%, rgba(48, 32, 25, 0.85) 100%),
-            url("../img/brownie-farelos.jpg");
+            url("../img/hero-brownie.jpg");
         background-position: center 60%;
     }
 
