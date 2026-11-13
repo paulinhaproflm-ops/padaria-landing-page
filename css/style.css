@@ -731,52 +731,57 @@ main section > p {
     font-size: 15px;
 }
 
-/* ===== SOBRE ===== */
+/* ===== SOBRE (estilo "Our Story" da referência) =====
+   Metade marrom, metade foto, e uma caixa creme por cima das duas.
+   A caixa é formada pelo título e pelos parágrafos, cada um com o mesmo fundo. */
 .sobre {
-    background-color: var(--creme);
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    grid-template-rows: auto 1fr;
-    column-gap: 88px;
-    align-items: start;
+    position: relative;
+    display: block;
+    background-color: var(--marrom);
+    padding-top: 128px;
+    padding-bottom: 128px;
+    overflow: hidden;
+}
+
+/* foto ocupando a metade direita */
+.sobre::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 50%;
+    background: var(--bege) url("../img/nossa-historia.jpg") center 45% / cover no-repeat;
+}
+
+.sobre h2,
+.sobre p {
+    position: relative;
+    z-index: 1;
+    width: min(680px, 62%);
+    max-width: none;
+    background-color: var(--creme-pedido);
+    margin: 0;
 }
 
 .sobre h2 {
-    grid-row: span 2;
+    padding: 48px 48px 20px;
+    font-size: 46px;
 }
 
-/* foto da produção artesanal, abaixo do título */
-.sobre h2::after {
-    content: "";
-    display: block;
-    aspect-ratio: 4 / 5;
-    margin-top: 36px;
-    border-radius: var(--raio);
-    background: var(--bege) url("../img/nossa-historia.jpg") center 55% / cover no-repeat;
-    box-shadow: var(--sombra);
+.sobre h2::before {
+    display: none;
 }
 
 .sobre p {
-    font-size: 18px;
-    max-width: 600px;
-    margin: 0 0 22px;
-    color: var(--texto-suave);
+    padding: 0 48px 18px;
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--texto);
 }
 
-.sobre > p:first-of-type {
-    font-family: var(--fonte-titulo);
-    font-size: 27px;
-    line-height: 1.45;
-    color: var(--marrom);
-    margin-top: 62px;
-}
-
-.sobre > p:first-of-type::first-letter {
-    float: left;
-    font-size: 82px;
-    line-height: 0.82;
-    padding: 8px 12px 0 0;
-    color: var(--laranja);
+.sobre > p:last-of-type {
+    padding-bottom: 48px;
 }
 
 /* ===== LOCALIZAÇÃO ===== */
@@ -996,9 +1001,13 @@ footer small {
 
     .cardapio,
     .como-encomendar,
-    .sobre,
     .localizacao {
         column-gap: 56px;
+    }
+
+    .sobre h2,
+    .sobre p {
+        width: min(560px, 64%);
     }
 
     .form-encomenda {
@@ -1148,26 +1157,35 @@ footer small {
         padding: 28px 22px;
     }
 
+    /* celular: foto em cima e a caixa creme subindo um pouco sobre ela */
     .sobre {
-        grid-template-columns: 1fr;
-        grid-template-rows: none;
+        padding-top: 260px;
+        padding-bottom: 56px;
+    }
+
+    .sobre::before {
+        width: 100%;
+        height: 300px;
+        bottom: auto;
+    }
+
+    .sobre h2,
+    .sobre p {
+        width: 100%;
     }
 
     .sobre h2 {
-        grid-row: auto;
+        padding: 32px 24px 14px;
+        font-size: 32px;
     }
 
-    .sobre h2::after {
-        aspect-ratio: 4 / 4.2;
+    .sobre p {
+        padding: 0 24px 14px;
+        font-size: 15px;
     }
 
-    .sobre > p:first-of-type {
-        font-size: 21px;
-        margin-top: 36px;
-    }
-
-    .sobre > p:first-of-type::first-letter {
-        font-size: 64px;
+    .sobre > p:last-of-type {
+        padding-bottom: 32px;
     }
 
     .localizacao {
@@ -1216,6 +1234,43 @@ footer small {
 
     footer > p:nth-of-type(4) {
         margin-top: 40px;
+    }
+}
+
+/* ===== PARALLAX =====
+   As fotos se movem mais devagar que a página ao rolar.
+   Feito só com CSS (animações ligadas à rolagem). Navegadores que ainda
+   não suportam mostram as fotos paradas, e quem pediu "reduzir movimento"
+   no sistema também vê as fotos paradas. */
+@keyframes parallax-hero {
+    from { background-position: center 58%, center 58%; }
+    to   { background-position: center 58%, center 85%; }
+}
+
+@keyframes parallax-foto {
+    from { background-position: center 20%; }
+    to   { background-position: center 80%; }
+}
+
+@supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+        .hero {
+            animation: parallax-hero linear both;
+            animation-timeline: view();
+            animation-range: exit;
+        }
+
+        .sobre,
+        .destaques .card {
+            view-timeline-name: --foto;
+        }
+
+        .sobre::before,
+        .destaques .card::before {
+            animation: parallax-foto linear both;
+            animation-timeline: --foto;
+            animation-range: cover;
+        }
     }
 }
 
