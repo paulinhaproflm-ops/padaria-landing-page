@@ -147,6 +147,18 @@ header {
     min-height: 44px;
 }
 
+/* logo oficial no topo: a imagem entra pelo CSS e o nome continua
+   no HTML para leitores de tela e para o Google */
+header .logo {
+    width: 124px;
+    height: 81px;
+    background: url("../img/logo-bella-vista-branca.png") left center / contain no-repeat;
+    color: transparent;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+}
+
 nav {
     display: flex;
     gap: 34px;
@@ -910,7 +922,7 @@ footer small {
     .hero {
         gap: 48px;
         min-height: 0;
-        padding-top: 220px;
+        padding-top: 250px;
         padding-bottom: 200px;
     }
 
@@ -953,6 +965,11 @@ footer small {
         font-size: 24px;
     }
 
+    header .logo {
+        width: 92px;
+        height: 60px;
+    }
+
     header nav {
         justify-content: flex-start;
         gap: 22px;
@@ -986,7 +1003,7 @@ footer small {
     .hero {
         grid-template-columns: 1fr;
         gap: 40px;
-        padding-top: 170px;
+        padding-top: 200px;
         padding-bottom: 150px;
         background-image:
             linear-gradient(180deg, rgba(48, 32, 25, 0.9) 0%, rgba(48, 32, 25, 0.72) 55%, rgba(48, 32, 25, 0.85) 100%),
