@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>J.A.R.V.I.S. HUD — demo</title>
+<style>
+  body{margin:0;min-height:100vh;background:#050b12;color:#9fdcf0;font-family:system-ui,sans-serif;display:grid;place-items:center}
+  main{text-align:center;padding:16px}
+  button{background:#0b2a3a;color:#4fd8ff;border:1px solid #4fd8ff66;border-radius:8px;padding:10px 16px;margin:4px;font-size:14px;cursor:pointer}
+  button:hover{background:#104058}
+</style>
+</head>
+<body>
+<main>
+  <h1>J.A.R.V.I.S. HUD</h1>
+  <p>Teste os estados do widget no canto da tela.</p>
+  <button id="b-idle">Em espera</button>
+  <button id="b-think">Pensar</button>
+  <button id="b-say">Falar</button>
+</main>
+<script src="jarvis-hud.js"></script>
+<script>
+  var j = JarvisHUD.mount();
+  document.getElementById('b-idle').onclick = function(){ j.idle(); };
+  document.getElementById('b-think').onclick = function(){ j.think('Analisando o código...'); };
+  document.getElementById('b-say').onclick = function(){ j.say('Bom dia, senhor. Todos os sistemas operacionais.'); };
+  j.think('Inicializando...');
+  setTimeout(function(){ j.say('Bom dia, senhor. Todos os sistemas operacionais.'); }, 1800);
+</script>
+</body>
+</html>
