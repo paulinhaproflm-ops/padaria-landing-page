@@ -836,6 +836,7 @@ main section > p {
     filter: brightness(1.08);
 }
 
+/* no celular: título em cima do texto e 2 fotos por linha (no computador são 4) */
 @media (max-width: 768px) {
     .galeria-topo {
         grid-template-columns: 1fr;
@@ -1025,6 +1026,9 @@ footer small {
 
 /* ==========================================================
    TABLET (até 1024px)
+   RESPONSIVIDADE: o @media só aplica as regras de dentro quando
+   a tela tem até 1024px de largura. No tablet, o menu desce para
+   uma linha própria e os espaços laterais diminuem.
    ========================================================== */
 @media (max-width: 1024px) {
     :root {
@@ -1082,6 +1086,9 @@ footer small {
 
 /* ==========================================================
    CELULAR (até 768px)
+   Em telas de até 768px, tudo passa para uma coluna só:
+   o menu desliza para o lado, os cards ficam um embaixo do outro,
+   o formulário vai para baixo do passo a passo e os textos diminuem.
    ========================================================== */
 @media (max-width: 768px) {
     :root {

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <!-- HEADER: topo da página (tag semântica). Tem a logo, o menu <nav> e o botão do WhatsApp -->
     <header>
         <a href="#inicio" class="logo">Bella Vista</a>
 
@@ -22,7 +23,9 @@
         <a href="https://wa.me/5591980193058" class="botao-whatsapp">Fazer encomenda</a>
     </header>
 
+    <!-- MAIN: conteúdo principal. Só existe um por página. Cada <section> abaixo é uma parte da página, e o id dela é o destino dos links do menu (ex.: href="#cardapio") -->
     <main>
+        <!-- INÍCIO (hero): primeira parte que o visitante vê. O <h1> é o título mais importante da página e aparece como a logo pelo CSS -->
         <section id="inicio" class="hero">
             <div class="hero-texto">
                 <p class="etiqueta">Panificadora e confeitaria · Belém/PA</p>
@@ -37,6 +40,7 @@
             </div>
         </section>
 
+        <!-- DESTAQUES: cada produto é um <article>, porque é um conteúdo que faz sentido sozinho -->
         <section id="destaques" class="destaques">
             <h2>Destaques da casa</h2>
 
@@ -61,6 +65,7 @@
             </div>
         </section>
 
+        <!-- CARDÁPIO: listas <ul> (sem ordem) com os produtos. O <span class="preco"> separa o preço para o CSS alinhar à direita -->
         <section id="cardapio" class="cardapio">
             <h2>Cardápio</h2>
             <p>Preços sujeitos a alteração. Itens marcados como "sob encomenda" precisam de pedido antecipado.</p>
@@ -98,6 +103,7 @@
             </div>
         </section>
 
+        <!-- COFFEE BREAK: público de empresas e eventos. O link do botão já abre o WhatsApp com uma mensagem pronta (?text=) -->
         <section id="coffee-break" class="coffee-break">
             <h2>Coffee break e cestas</h2>
             <p>Atendemos empresas, eventos e reuniões com opções completas, preparadas com a mesma qualidade da nossa produção diária.</p>
@@ -117,6 +123,7 @@
             <a href="https://wa.me/5591980193058?text=Olá! Gostaria de um orçamento de coffee break." class="botao">Solicitar orçamento</a>
         </section>
 
+        <!-- COMO ENCOMENDAR: lista <ol> (com ordem, porque é um passo a passo) e o formulário que o JavaScript usa para montar a mensagem do WhatsApp -->
         <section id="como-encomendar" class="como-encomendar">
             <h2>Como encomendar</h2>
 
@@ -159,12 +166,14 @@
             </form>
         </section>
 
+        <!-- NOSSA HISTÓRIA: a foto entra pelo CSS (background-image) -->
         <section id="sobre" class="sobre">
             <h2>Nossa história</h2>
             <p>A Panificadora Bella Vista nasceu em Belém do Pará com um propósito simples: oferecer pães, doces e salgados de qualidade para o dia a dia das famílias.</p>
             <p>Em agosto de 2026 completamos 7 anos. Somos uma panificadora de bairro, com produção própria, que valoriza o cuidado no preparo e o relacionamento com cada cliente. Aqui você é recebido como em casa.</p>
         </section>
 
+        <!-- GALERIA: fotos reais da Bella Vista. O alt descreve cada foto para leitores de tela, e loading="lazy" só carrega a foto quando a pessoa rola até ela -->
         <section id="galeria" class="galeria">
             <div class="galeria-topo">
                 <h2>Galeria</h2>
@@ -186,6 +195,7 @@
             </div>
         </section>
 
+        <!-- ONDE ESTAMOS: o parágrafo #status-funcionamento é atualizado pelo JavaScript ("Aberto agora" / "Fechado"). <address> é a tag semântica para endereço -->
         <section id="localizacao" class="localizacao">
             <h2>Onde estamos</h2>
 
@@ -214,6 +224,7 @@
         </section>
     </main>
 
+    <!-- FOOTER: rodapé da página, com contatos e formas de pagamento -->
     <footer>
         <p class="logo">Bella Vista</p>
         <p>Panificadora e confeitaria em Val-de-Cans, Belém/PA</p>
