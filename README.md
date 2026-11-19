@@ -20,6 +20,6 @@ Projeto acadêmico de landing page desenvolvido para uma padaria real.
 - [x] Ambiente configurado
 - [ ] Briefing com o cliente
 - [ ] Documento de escopo
-- [ ] Desenvolvimento
+- [x] Desenvolvimento
 - [ ] Revisão com o cliente
 - [ ] Publicação
